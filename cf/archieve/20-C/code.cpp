@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 #define N_MAX 100500
 #define INF 100000000000LL
 #define P pair<int, int>
