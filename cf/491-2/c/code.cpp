@@ -11,15 +11,10 @@ bool ok(ll k){
   ll candy = n;
   ll v = 0;
   while(candy){
-    // cout << "K: " << k << ' ';
     v += min(candy, k);
-    // cout << candy << ' ';
     candy -= min(candy, k);
-    candy -= floor(candy*.1);
-    // cout << candy << '\n';
+    candy -= candy/10;
   }
-
-  // cout << k << ' ' << v << '\n';
 
   return 2*v >= n;
 }
@@ -32,18 +27,15 @@ int main(){
 
   ll maxok = 1;
   ll minnot = 100000000000000000LL;
-  // cout << 100000000000000000LL + 100000000000000000LL << '\n';
-  // cout << fixed << pow(2, 63) << '\n';
 
   while(maxok <= minnot){
     ll guess = (minnot + maxok)/2;
-    // cout << guess << ' ' << minnot << ' ' << maxok << '\n';
+
     if(ok(guess)){
       ans = min(ans, guess);
       minnot = guess-1;
     } else
       maxok = guess+1;
-
   }
 
   if(ok(maxok+1))

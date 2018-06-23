@@ -7,22 +7,18 @@ using namespace std;
 //   {{"00", "00"}, {"0X", "00"}},
 //   {{"00", "00"}, {"X0", "00"}}
 // };
-string l[4] = {
-  {{0,0, 0,1}},
-  {{0,0, 1,0}},
-  {{0,1, 0,0}},
-  {{1,0, 0,0}},
+string l[4][2][2] = {
+  {{0,0}, {0,1}},
+  {{0,0}, {1,0}},
+  {{0,1}, {0,0}},
+  {{1,0}, {0,0}},
 };
 
 bool m[2][100];
 bool all[2][2] = {{1,1}, {1,1}};
-// bool l[];
+
 string a, b;
 int cnt = 0;
-
-int l(string &s, int i){
-  return s[i] - '0';
-}
 
 int answer[100][4];
 int sz;
@@ -33,6 +29,18 @@ bool solve(int index, int sh, int v = 0){
 
   if(answer[index][sh] != -1)
     return answer[index][sh];
+
+  bool can = true;
+  for(int i = 0; i < 2; i++)
+    for(int j = 0; j < 2; j++)
+      if(!l[sh][i][i])
+        if(!m[i][j])
+          can = false;
+  if(can)
+  for(int i = 0; i < 2; i++)
+    for(int j = 0; j < 2; j++)
+      if(!l[sh][i][i])
+        m[i][j] = 0;
 
 
   return answer[index][sh] = v;
