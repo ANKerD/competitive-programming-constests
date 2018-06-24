@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <bits/stdc++.h>
 
 #define MAXN 100010
 
@@ -55,8 +54,47 @@ typedef std::vector<double> vd;
 
 typedef std::string ss;
 
-int main(){
-  ios_base::sync_with_stdio(false);
+int arr[220];
+int n;
 
+int insert(int t){
+  int a, b, res;
+  loop1(0, 2*n -1){
+    if (arr[i] != t)
+      continue;
+    a = i;
+    loop2(i+1, 2*n -1)
+      if (arr[j] != t)
+        continue;
+      else{
+        b = j;
+        break;
+      }
+    res = b - a-1;
+    while(a+1 < b){
+      swap(arr[b-1], arr[b]);
+      b--;
+    }
+    break;
+  }
+  return res;
+}
+
+int main(){
+
+  ios_base::sync_with_stdio(false);
+  cin >> n;
+  read(0, 2*n-1, arr);
+  bool vis[n+1];
+  memset(vis, 0, sizeof(vis));
+  int cnt = 0;
+  loop(0, 2*n-1){
+    if(!vis[arr[i]]){
+      cnt += insert(arr[i]);
+      vis[arr[i]] = 1;
+    }
+  }
+
+  trace1(cnt);
   return 0;
 }
