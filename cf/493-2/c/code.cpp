@@ -57,6 +57,8 @@ typedef std::string ss;
 
 int main(){
   ios_base::sync_with_stdio(false);
+  ll a;
+  cout << sizeof(a) << '\n';
 
   return 0;
 }

@@ -55,8 +55,39 @@ typedef std::vector<double> vd;
 
 typedef std::string ss;
 
+struct b{
+  int v, i;
+};
+
+bool cmp(b a, b c){
+    return a.v < c.v;
+}
+
 int main(){
-  ios_base::sync_with_stdio(false);
+  // ios_base::sync_with_stdio(false);
+
+  int n;
+  cin >> n;
+  b inp[n];
+  loop1(0, n-1){
+    cin >> inp[i].v;
+    inp[i].i = i;
+  }
+
+  if(n < 2 || (n == 2 && inp[0].v == inp[1].v)){
+    cout << "-1\n";
+    return 0;
+  }
+
+  sort(inp, inp+n, cmp);
+
+  // vector<b> a, b;
+
+  // cout << "1\n1\n";
+
+  cout << n-1 << '\n';
+  loop1(1, n-1)
+    printf("%d%c", inp[i].i+1, " \n"[i == n-1]);
 
   return 0;
 }

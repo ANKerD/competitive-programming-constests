@@ -48,7 +48,7 @@ typedef std::vector<vi> vvi;
 typedef std::vector<vii> vvii;
 
 typedef std::vector<char> vc;
-typedef std::vector<std::vector<char>> vvc;
+typedef std::vector<std::vector<char> > vvc;
 
 typedef std::vector<ll> vll;
 typedef std::vector<double> vd;

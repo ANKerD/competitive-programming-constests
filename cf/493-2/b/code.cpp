@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #include <bits/stdc++.h>
 
-#define MAXN 100010
+#define MAXN 110
 
 #define trace1(a) printf("%d\n", a);
 #define trace2(a, b) printf("%d %d\n", a);
@@ -55,8 +55,48 @@ typedef std::vector<double> vd;
 
 typedef std::string ss;
 
+vi st;
+int num[MAXN];
+// int res[MAXN][MAXN];
+int n, b;
+int solve(int l, int r, int ind, int bud){
+  int s = abs(num[l] - num[r]);
+  if(s > bud)
+    return 0;
+  bud -= s;
+  int t = 0;
+  loop1(ind+1, st.size()-1)
+    t = max(t, solve(r+1, st[i], i, bud));
+
+  return s+t;
+}
+
 int main(){
-  ios_base::sync_with_stdio(false);
+  // memset(res, -1, sizeof(res[0]) * MAXN * MAXN);
+
+  cin >> n >> b;
+  int odd=0,ev=0;
+  loop1(0,n-1){
+    cin >> num[i];
+    if(num[i]&1)
+      odd++;
+    else
+      ev++;
+    if(odd==ev)
+      st.push_back(i);
+  }
+
+  if(st.size() == 1 && st[0] == n-1){
+    cout << "0\n";
+    return 0;
+  }
+
+  int ans = 0;
+  loop1(0, st.size()-2)
+    ans = max(ans, solve(0, st[i], i, b));
+    // cout << st[i] << ' ';
+
+  cout << ans << '\n';
 
   return 0;
 }

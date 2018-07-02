@@ -38,15 +38,16 @@ int main(){
   ll n;
   cin >> n;
 
-  loop(0, n-1){cin >> mat[i].x >> mat[i].y, mat[i].i = i; ord[i] = atan2(mat[i].x, mat[i].x);}
+  loop(0, n-1) {
+    cin >> mat[i].x >> mat[i].y;
+    mat[i].i = i;
+    ord[i] = atan2(mat[i].x, mat[i].y);
+  }
+
   sort(mat, mat+n, cmp);
   ll sx = 0,sy = 0;
   loop(0, n-1){
-    if(sx == 0 && sy == 0){
-      sx += mat[i].x;
-      sy += mat[i].y;
-      ans[mat[i].i] = 1;
-    } else if(p(sx+mat[i].x) + p(sy+mat[i].y) < p(sx-mat[i].x) + p(sy-mat[i].y)){
+    if(p(sx+mat[i].x) + p(sy+mat[i].y) < p(sx-mat[i].x) + p(sy-mat[i].y)){
       sx += mat[i].x;
       sy += mat[i].y;
       ans[mat[i].i] = 1;
