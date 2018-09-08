@@ -1,62 +1,39 @@
 #include <bits/stdc++.h>
-#include <bits/stdc++.h>
-
-#define MAXN 100010
-
-#define trace1(a) printf("%d\n", a);
-#define trace2(a, b) printf("%d %d\n", a);
-#define trace3(a, b, c) printf("%d %d %d\n", a);
-#define trace4(a, b, c, d) printf("%d %d %d %d\n", a);
-#define trace5(a, b, c, d, e) printf("%d %d %d %d %d\n", a);
-#define trace6(a, b, c, d, e, f) printf("%d %d %d %d %d %d\n", a);
-#define printArr(harry, tam) loop1(0, tam-1) printf("%d%c", harry[i], " \n"[i == tam -1]);
-
-#define swap(a, b) a^= b; b^= a; a^= b;
-#define swap2(a, b) auto temp = a; a = b; b = temp;
-
-#define loop1(l, r) for(int i = l; i <= r; i++)
-#define loop2(l, r) for(int j = l; j <= r; j++)
-#define loop3(l, r) for(int k = l; k <= r; k++)
-#define loop4(l, r) for(int m = l; m <= r; m++)
-#define loop5(l, r) for(int o = l; o <= r; o++)
-#define loop6(l, r) for(int p = l; p <= r; p++)
-#define iloop1(l, r) for(int i = l; i >= r; i--)
-#define iloop2(l, r) for(int j = l; j >= r; j--)
-#define iloop3(l, r) for(int k = l; k >= r; k--)
-#define iloop4(l, r) for(int m = l; m >= r; m--)
-#define iloop5(l, r) for(int o = l; o >= r; o--)
-#define iloop6(l, r) for(int p = l; p >= r; p--)
-
-#define read(l, r, a) for(int i = l; i <= r; i++) scanf("%d", &a[i])
-#define readM(l, r, ll, rr, a) for(int i = l; i <= r; i++) for(int j = ll; j <= rr; j++) scanf("%d", &a[i][j])
-#define readGraph(l, r, g) for(int i = l; i <= r; i++){ int x, y; cin >> x >> y; g[x].push_back(y); g[y].push_back(x);}
-
-#define pb(ve, value) ve.push_back(value);
-#define mp(a, b) make_pair(a, b);
-#define fis first;
-#define sec second;
-
 using namespace std;
-
+#define trace1(a) cout << a << '\n';
+#define trace2(a, b) cout << a << ' ' << b << '\n';
+#define trace3(a, b, c) cout << a << ' ' << b << ' ' << c << '\n';
+#define trace4(a, b, c, d) cout << a << ' ' << b << ' ' << c << ' ' << d << '\n';
+#define trace5(a, b, c, d, e) cout << a << ' ' << b << ' ' << c << ' ' << d << ' ' << e << '\n';
+#define trace6(a, b, c, d, e, f) cout << a << ' ' << b << ' ' << c << ' ' << d << ' ' << e << ' ' << f << '\n';
+#define printArr(harry, tam) range(tam) cout << harry[i] << " \n"[i == tam -1];
+#define range(n) for(int i = 0; i < n; i++)
+#define maxn 2000000
+#define mod 1000000007
+#define md(x) (x) % mod;
+#define sc scanf
+#define pr printf
+#define fi first
+#define se second
+#define mp make_pair
+#define pb push_back
+#define ps push
+#define prt(x) cout << (#x) << " is " << (x) << endl
+#define EPS 1e-9
+#define INF 1000000000
+#define INFd 1e9
 typedef long long ll;
 typedef long double ld;
-
-typedef std::pair<int, int> ii;
-typedef std::vector<int> vi;
-typedef std::vector<ii> vii;
-typedef std::vector<vi> vvi;
-typedef std::vector<vii> vvii;
-
-typedef std::vector<char> vc;
-typedef std::vector<std::vector<char> > vvc;
-
-typedef std::vector<ll> vll;
-typedef std::vector<double> vd;
-
-typedef std::string ss;
+typedef pair<int, int> ii;
+typedef vector<int> vi;
+typedef vector<ii> vii;
+typedef vector<ll> vll;
+typedef vector<double> vd;
 
 int main(){
-  ios_base::sync_with_stdio(false);
+	int n;
+	cin >> n;
+	printf("Hoje eu commmmi %d bolinhos de arroz", n);
 
-  return 0;
+ 	return 0;
 }
