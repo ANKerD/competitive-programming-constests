@@ -17,6 +17,7 @@ bool solve(int i, int acum){
 		as += t[i++]-'0';
 	}
 	while(i < n && t[i]=='0') i++;
+	if(as != acum) return 0;
 	if(i == n) return as == acum;
 	return solve(i, acum);
 }
@@ -35,6 +36,7 @@ int main(){
 		acum += t[i]-'0';
 		if(solve(i+1, acum)){
 			trace1("YES");
+			// trace1(i);
 			return 0;
 		}
 	}
