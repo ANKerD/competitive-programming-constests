@@ -33,7 +33,6 @@ typedef vector<double> vd;
 int main(){
 	int n;
 	cin >> n;
-	printf("Hoje eu commmmi %d bolinhos de arroz", n);
 
  	return 0;
 }
