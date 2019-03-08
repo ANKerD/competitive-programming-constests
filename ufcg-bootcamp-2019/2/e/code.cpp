@@ -1,78 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define range(n) for(int i = 0; i < n; i++)
-#define printArr(harry, tam) range(tam) cout << harry[i] << " \n"[i == tam -1];
 #define maxn 710
-#define mod 1000000007
-#define md(x) (x) % mod;
-#define fi first
-#define se second
-#define mp make_pair
-#define pb push_back
-#define EPS 1e-9
-#define INF 1000000000
-#define INFd 1e9
-typedef long long ll;
-typedef long double ld;
-typedef pair<int, int> ii;
-typedef vector<int> vi;
-typedef vector<ii> vii;
-typedef vector<ll> vll;
-typedef vector<double> vd;
-
-template<typename T>
-void trace(T a){
-	cout << a << '\n';
-}
-
-template<typename T, typename... Args>
-void trace(T a, Args... args){
-	cout << a << ' ';
-	trace(args...);
-}
 
 int a[maxn];
-map<int, int>  p;
 
-int gcd(int a, int b){
+int cop[maxn][maxn];
+int dp[maxn][maxn][2];
+
+int _gcd(int a, int b){
 	if(!a) return b;
-	return gcd(b%a,a);
+	return _gcd(b%a,a);
 }
 
-int find(int a){
-	if(p[a] == a) return a;
-	return p[a] = find(p[a]);
-}
-
-void join(int a, int b){
-	a = find(a);
-	b = find(b);
-	if(a != b)
-		p[b] = a;
+int n;
+int solve(int l, int r, bool p){
+	if(dp[l][r][p] > -1) return dp[l][r][p];
+	if(r <= l){
+		if(!p) return dp[l][r][p] = cop[l-1][l] > 1;
+		else return dp[l][r][p] = cop[r][r+1] > 1;
+	}
+	int parent = p? r+1 : l-1;
+	
+	for(int i = l; i <= r; i++){
+		if(cop[i][parent] && solve(l, i-1, 1) && solve(i+1, r, 0))
+			return dp[l][r][p] = 1;
+	}
+	
+	return dp[l][r][p] = 0;
 }
 
 int main(){
-	int n;
+	memset(dp, -1, sizeof dp);
 	cin >> n;
+	a[0] = a[n+1] = 0;
+	for(int i = 0; i < n; i++) cin >> a[i+1];
 
-	range(n){
-		cin >> a[i];
-		p[a[i]] = a[i];
-	}
+	for(int i = 0; i < n+2; i++)
+		for(int j = i; j < n+2; j++)
+			cop[j][i] = cop[i][j] = _gcd(a[i], a[j]);
 
-	for(int i = 0; i < n; i++)
-		for(int j = i+1; j < n; j++)
-			if(gcd(a[i], a[j]) > 1)
-				join(a[i], a[j]);
+	cop[0][0] = 89987;
 
-	set<int> v;
-	for(int i = 0; i < n; i++)
-		v.insert(find(a[i]));
+	if(solve(1,n,0) || solve(1,n,1))
+		printf("YES\n");
+	else
+		printf("NO\n");
 	
-	if((int) v.size() == 1)
-		trace("Yes");
-	else 
-		trace("No");
-
  	return 0;
 }
