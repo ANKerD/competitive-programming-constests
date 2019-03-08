@@ -1,10 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define int long long
 #define range(n) for(int i = 0; i < n; i++)
 #define printArr(harry, tam) range(tam) cout << harry[i] << " \n"[i == tam -1];
+#define maxn 1000010
 #define mod 1000000007
-#define md(x) (x) % mod;
 #define fi first
 #define se second
 #define mp make_pair
@@ -31,33 +30,52 @@ void trace(T a, Args... args){
 	trace(args...);
 }
 
-int a;
+char ss[maxn], tt[maxn];
+string s,t;
 
-int32_t main(){
-	int q;
-	cin >> q;
-	vi odd;
-	int n = -INF, ev = 0;
-	range(q){
-		cin >> a;
-		if(a>=0){
-			if(a&1) odd.pb(a);
-			else ev += a;
-		} else if((-a)&1) n = max(n,a);
+int f[266];
+
+int main(){
+	memset(f,0, sizeof f);
+	scanf(" %s", ss);
+	scanf(" %s", tt);
+
+	s = ss;
+	t = tt;
+
+	register int id;
+	register int sz = (int) t.size();
+
+	char m = 'a';
+	for(register int i = 0; i < (int) s.size(); i++){
+		if(s[i] != '?'){
+			f[s[i]]++;
+			if(f[s[i]] < f[m]) m = s[i];
+		}
 	}
 
-	int s = 0;
-	sort(odd.begin(), odd.end());
-	range(((int) odd.size())){
-		s += odd[i];
+	
+	for(register int i = 0; i < (int) t.size(); i++){
+		f[t[i]]--;
+		if(f[t[i]] < f[m]) m = t[i];
 	}
-	ll ans;
-	if(((int) odd.size()) > 0 && ((int) odd.size()) % 2 == 0)
-		s-=min(odd[0],-n);
-	else if(!(s&1))
-		s+=n;
 	
-	trace(s+ev);
-	
+	char c;
+	for(register int i = 0; i < (int) s.size(); i++){
+		int id = i % ((int) t.size());
+		if(s[i] != '?'){
+			c = s[i];
+			
+		} else {
+			c = m;
+			f[c]++;
+		}
+		
+		printf("%c",c);
+		if(f[c] < f[m]) m = c;
+	}
+
+	printf("\n");
+
  	return 0;
 }

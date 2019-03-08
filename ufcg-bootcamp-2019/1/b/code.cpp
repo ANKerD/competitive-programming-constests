@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define int long long
 #define range(n) for(int i = 0; i < n; i++)
 #define printArr(harry, tam) range(tam) cout << harry[i] << " \n"[i == tam -1];
-#define maxn 1001
+#define maxn 2000000
 #define mod 1000000007
 #define md(x) (x) % mod;
 #define fi first
@@ -31,26 +30,8 @@ void trace(T a, Args... args){
 	cout << a << ' ';
 	trace(args...);
 }
-ll a[maxn];
-int32_t main(){
-	ll n, m;
-	cin >> n >> m;
-	range(n){
-		cin >> a[i];
-	}
-	
-	sort(a,a+n);
-
-	int i = 0, cnt = 0;
-	while(i < n){
-		while(2*m < a[i]){
-			cnt++;
-			m *= 2;
-		}
-		m = max(m,a[i++]);
-		
-	}
-	trace(cnt);
+int main(){
+	trace(1,2,7,4);
 
  	return 0;
 }

@@ -2,7 +2,7 @@
 using namespace std;
 #define range(n) for(int i = 0; i < n; i++)
 #define printArr(harry, tam) range(tam) cout << harry[i] << " \n"[i == tam -1];
-#define maxn 2000000
+#define maxn 2010
 #define mod 1000000007
 #define md(x) (x) % mod;
 #define fi first
@@ -30,8 +30,26 @@ void trace(T a, Args... args){
 	cout << a << ' ';
 	trace(args...);
 }
-int main(){
-	trace(1,2,7,4);
 
+ld d[maxn][maxn];
+
+int n,_t;
+ld p;
+ld fib(int i, int t){
+	// if(d[i][t] > -90) return d[i][t];
+	
+	if(t == _t || i == n) return i;
+
+	return (p)*fib(i+1, t+1)+(1-p)*fib(i, t+1);
+	
+	// return d[i][t];
+}
+
+int main(){
+	cin >> n >> p >> _t;
+	for(int i = 0; i < maxn; i++)
+		for(int j = 0; j < maxn; j++)
+			d[i][j] = -100;
+	cout << fixed << setprecision(16) << fib(0,0);
  	return 0;
 }

@@ -2,7 +2,7 @@
 using namespace std;
 #define range(n) for(int i = 0; i < n; i++)
 #define printArr(harry, tam) range(tam) cout << harry[i] << " \n"[i == tam -1];
-#define maxn 710
+#define maxn 2000000
 #define mod 1000000007
 #define md(x) (x) % mod;
 #define fi first
@@ -30,49 +30,8 @@ void trace(T a, Args... args){
 	cout << a << ' ';
 	trace(args...);
 }
-
-int a[maxn];
-map<int, int>  p;
-
-int gcd(int a, int b){
-	if(!a) return b;
-	return gcd(b%a,a);
-}
-
-int find(int a){
-	if(p[a] == a) return a;
-	return p[a] = find(p[a]);
-}
-
-void join(int a, int b){
-	a = find(a);
-	b = find(b);
-	if(a != b)
-		p[b] = a;
-}
-
 int main(){
-	int n;
-	cin >> n;
-
-	range(n){
-		cin >> a[i];
-		p[a[i]] = a[i];
-	}
-
-	for(int i = 0; i < n; i++)
-		for(int j = i+1; j < n; j++)
-			if(gcd(a[i], a[j]) > 1)
-				join(a[i], a[j]);
-
-	set<int> v;
-	for(int i = 0; i < n; i++)
-		v.insert(find(a[i]));
-	
-	if((int) v.size() == 1)
-		trace("Yes");
-	else 
-		trace("No");
+	trace(1,2,7,4);
 
  	return 0;
 }

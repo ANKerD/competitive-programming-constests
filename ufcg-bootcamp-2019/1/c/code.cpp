@@ -31,30 +31,7 @@ void trace(T a, Args... args){
 	trace(args...);
 }
 int main(){
-	int n;
-	cin >> n;
-	int a[100];
-	range(2*n){
-		cin >> a[i];
-	}
-
-	sort(a,a+(2*n));
-
-	int ans = INF;
-	for(int i = 0; i < 2*n; i++)
-		for(int j = i+1; j < 2*n; j++){
-			vi p;
-			for(int k = 0; k < 2*n; k++){
-				if(k == i || k == j) continue;
-				p.pb(a[k]);
-			}
-			int w = 0;
-			// trace(n-1, (int) p.size());
-			for(int k = 0; k < 2*(n-1); k+=2)
-				w += p[k+1]-p[k];
-			ans = min(ans,w);
-		}
-	trace(ans);
+	trace(1,2,7,4);
 
  	return 0;
 }
