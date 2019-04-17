@@ -33,74 +33,40 @@ void trace(T a, Args... args){
 	trace(args...);
 }
 
-vll fact(ll n){
-	vll ans;
-	for(ll i = 1; i <= sqrt(n+1)+1; i++){
-		if(!(n%i)) ans.pb(i);
-	}
-	return ans;
-}
-
-vi f[maxn];
-bool p[maxn];
-
-void sieve(){
-	memset(p, 1, sizeof p);
-	range(maxn){
-		f[i].pb(1);
-	}
-	register int i = 2;
-	while(i < maxn){
-		register int j = i<<1;
-		while(j < maxn){
-			f[j].pb(i);
-			p[j]=0;
-			j+=i;
+map<ll, set<ll> > prc;
+set<ll> fact(ll n){
+	if(prc.count(n)) return prc[n];
+	// trace("hjhk");
+	set<ll> ans;
+	for(ll i = 1; i <= sqrt(n); i++){
+		if(!(n%i)){
+			ans.insert(i);
+			ans.insert(n/i);
 		}
-		i++;
-		while(i < maxn && !p[i]) i++;
 	}
-	range(maxn){
-		if(i > 1)
-			f[i].pb(i);
-	}
+	return prc[n] = ans;
 }
+
+bool p[maxn];
 
 int main(){
 	
-	sieve();
-	
 	ll n, m;
 	cin >> n >> m;
-
-	vi ft = fact(n);
-	
-	set<ll> fa;
-	
-	for(auto i: ft)
-		for(auto j : f[i])
-			fa.insert(j);
+	m = min(m,ll(mid));
 	
 	vll a;
-	for(auto it = fa.begin(); it != fa.end(); it++)
-		a.pb(*it);
 	a.pb(n);
 	
-	int t = 1;
-	// int bound = min()
+	int t = 0;
+	
 	while((int) a.size() < mid && t++ < m){
+		// trace(t);
 		vi c;
 		for(int i = 0; i < (int) a.size(); i++){
-			if(a[i] == n){
-				for(auto it = fa.begin(); it != fa.end(); it++)
-					c.pb(*it);
-				c.pb(n);
-			} else {
-				for(auto it = f[a[i]].begin(); it != f[a[i]].end(); it++)
-					c.pb(*it);
-				if(a[i] > 2)
-					c.pb(a[i]);
-			}
+			set<ll> xxt = fact(a[i]);
+			for(auto j: xxt)
+				c.pb(j);
 		}
 		a = c;
 	}

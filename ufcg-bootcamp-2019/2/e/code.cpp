@@ -14,15 +14,17 @@ int _gcd(int a, int b){
 
 int n;
 int solve(int l, int r, bool p){
-	if(dp[l][r][p] > -1) return dp[l][r][p];
-	if(r <= l){
-		if(!p) return dp[l][r][p] = cop[l-1][l] > 1;
-		else return dp[l][r][p] = cop[r][r+1] > 1;
+	if(r < l) return 1;
+	if(r == l){
+		if(!p) return dp[l][r][p] = cop[l-1][l] != 1;
+		else return dp[l][r][p] = cop[r][r+1] != 1;
 	}
-	int parent = p? r+1 : l-1;
+	if(dp[l][r][p] > -1) return dp[l][r][p];
+	
+	int parent = p ? r+1 : l-1;
 	
 	for(int i = l; i <= r; i++){
-		if(cop[i][parent] && solve(l, i-1, 1) && solve(i+1, r, 0))
+		if((cop[i][parent] != 1) && solve(l, i-1, 1) && solve(i+1, r, 0))
 			return dp[l][r][p] = 1;
 	}
 	
