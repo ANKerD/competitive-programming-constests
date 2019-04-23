@@ -11,6 +11,7 @@ using namespace std;
 #define vii vector<ii>
 #define vll vector<ll>
 #define maxn 1000010
+#define INF 1000000000
 
 template<typename T>
 void trace(T a){ cout << a << '\n';}
@@ -18,13 +19,13 @@ template<typename T, typename... Args>
 void trace(T a, Args ...args){ cout << a << ' '; trace(args...);}
 
 struct line{
-	int x1,x2,x3,x4;
+	int x1,x2,y1,y2;
 	line(){};
 	line(int _x1, int _x2, int _x3, int _x4){
 		x1 = _x1;
 		x2 = _x2;
-		x3 = _x3;
-		x4 = _x4;
+		y1 = _x3;
+		y2 = _x4;
 	};
 };
 
@@ -36,8 +37,10 @@ bool cmp(line a, line b){
 	return a.y1 > a.y2;
 }
 
-int inline int left(int x){return x<<1;}
-int inline int right(int x){return (x<<1)|1;}
+int inline left(int x){return x<<1;}
+int inline right(int x){return (x<<1)|1;}
+
+int st[4*maxn];
 
 void build(int id, int l, int r){
 	if(l == r){
@@ -50,14 +53,14 @@ void build(int id, int l, int r){
 }
 
 int main(){
-	int n,c;
+	int n,c,x1,x2,x3,x4;
 	cin >> n >> c;
 	for(int i = 0; i < n; i++){
 		cin >> x1 >> x2 >> x3 >> x4;
 		lines[i] = line(x1,x2,x3,x4);
 	}
 	
-	sort(lines, line+n, cmp);
+	sort(lines, lines+n, cmp);
 
  	return 0;
 }
