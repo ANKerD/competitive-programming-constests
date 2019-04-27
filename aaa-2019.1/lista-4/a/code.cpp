@@ -20,19 +20,16 @@ void trace(T a, Args ...args){ cout << a << ' '; trace(args...);}
 int n, m, a[maxn];
 int dp[maxn][maxn];
 
-int solve(int pos, int left){
-	if(!left || !pos || pos == m+1) return 0;
-	if(left == 1) return a[pos+1]-a[pos-1];
-	if(dp[pos][left] != -1) return dp[pos][left];
+int solve(int i, int j){
+	if(i+1>=j) return 0;
+	if(dp[i][j] != -1) return dp[i][j];
+
+	int ans = 1e8;
+	for(int k = i+1; k < j; k++)
+		ans = min(ans, solve(i, k) + solve(k, j));
 	
-	int ans = 1e9;
-	for(int i = 0; i < left; i++){
-		// trace(pos, left);
-		// trace("to", pos, i, pos+i, left-i);
-		ans = min(ans, solve(pos, i)+solve(pos+i+1, left-i-1));
-	}
-	int d = a[pos+left]-a[pos-1];
-	return dp[pos][left] = ans + d;
+	int d = a[j]-a[i];
+	return dp[i][j] = ans+d;
 }
 
 int main(){
@@ -42,8 +39,7 @@ int main(){
 		for(int i = 1; i <= m; i++)
 			cin >> a[i];
 		memset(dp, -1, sizeof dp);
-		cout << solve(1, m) << '\n';
+		cout << solve(0, m+1) << '\n';
 	}
  	return 0;
 }
-
