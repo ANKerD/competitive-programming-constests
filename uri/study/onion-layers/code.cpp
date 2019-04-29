@@ -1,42 +1,47 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define x first
-#define y second
-#define mp make_pair
 #define pb push_back
-#define ii pair<int, int>
-#define vii vector<ii>
 
-bool cmp(ii a, ii b){
-	if(a.x != b.x) 
-		return a.x < b.x;
-	return a.y < b.y;
+struct pt {
+	int x,y;
+	int operator ^ (pt o) { // Produto cruzado |this|*|o|*sin(this->o)
+        return x * o.y - y * o.x;
+	}
+	pt operator - (pt o) { //Diferença de pontos
+        return {x - o.x, y - o.y};
+	}
+	bool operator == (pt o) {
+        return x == o.x && y == o.y;
+	}
+};
+
+inline bool operator<(const pt& a, const pt& b){
+  	if(a.x != b.x)  return a.x < b.x;
+	else return a.y < b.y;
 }
 
-int cross(ii a, ii b) { return a.x * b.y - a.y * b.x; }
-ii toVec(ii a, ii b){ return mp(b.x-a.x, b.y-a.y); }
-
-bool ccw(ii p, ii q, ii r) {
-	return cross(toVec(p, q), toVec(p, r)) > 0; 
+bool ccw(pt p, pt q, pt r) {
+	pt p1 = q-p;
+	pt p2 = r-p;
+	return (p1 ^ p2) > 0;
 }
 
-vii convexhull(vii pt){
-	int n = (int) pt.size();
-	if(n <= 3) return pt;
+vector<pt> convexhull(vector<pt> points){
+	int n = (int) points.size();
+	if(n <= 3) return points;
 
-	sort(pt.begin(), pt.end(), cmp);
+	sort(points.begin(), points.end());
 
 	int k = 0;
-	vii hull(2*n);
+	vector<pt> hull(2*n);
 
-	for(int i = 0; i < n; ++i) {
-		while (k >= 2 && ccw(hull[k-2], hull[k-1], pt[i])) k--;
-		hull[k++] = pt[i];
+	for (int i = 0; i < n; ++i) {
+		while (k >= 2 && ccw(hull[k-2], hull[k-1], points[i])) k--;
+		hull[k++] = points[i];
 	}
-	// printf("k = %d\n", k);
-	for(int i = n-1, t = k+1; i > 0; --i) {
-		while (k >= t && ccw(hull[k-2], hull[k-1], pt[i-1])) k--;
-		hull[k++] = pt[i-1];
+	for (int i = n-1, t = k+1; i > 0; --i) {
+		while (k >= t && ccw(hull[k-2], hull[k-1], points[i-1])) k--;
+		hull[k++] = points[i-1];
 	}
 
 	hull.resize(k-1);
@@ -45,36 +50,32 @@ vii convexhull(vii pt){
 
 int main(){
 	int n,x,y;
-	while(1){
-		cin >> n;
-		if(!n)break;
-		vii pt;
-		for(int i = 0; i < n; i++){
-			cin >> x >> y;
-			pt.pb(mp(x,y));
+	while (1){
+		scanf("%d", &n);
+		if (!n)break;
+		vector<pt> points;
+		for (int i = 0; i < n; i++){
+			scanf("%d %d", &x, &y);
+			points.pb({x,y});
 		}
 		
 		int qtd = 0;
-		while((int) pt.size() > 0){
+		while ((int) points.size() > 0){
 			qtd++;
-			vii hull = convexhull(pt);
-			set<ii> dots(hull.begin(), hull.end());
-			vii npts;
-			for(auto dot: pt)
-				if(!dots.count(dot))
+			vector<pt> hull = convexhull(points);
+			set<pt> dots(hull.begin(), hull.end());
+			vector<pt> npts;
+			for (auto dot: points)
+				if (!dots.count(dot))
 					npts.pb(dot);
-			// for(auto dot: pt)
-			// 	if(dots.count(dot))
-			// 		printf("<%d, %d> ", dot.x, dot.y);
-			// cout << "\n\n\n";
 
-			pt = npts;
+			points = npts;
 		}
-		// printf("qtd = %d\n", qtd);
+		
 		if(qtd&1)
-			cout << "Take this onion to the lab!\n";
+			printf("Take this onion to the lab!\n");
 		else
-			cout << "Do not take this onion to the lab!\n";
+			printf("Do not take this onion to the lab!\n");
 	}
 
  	return 0;
