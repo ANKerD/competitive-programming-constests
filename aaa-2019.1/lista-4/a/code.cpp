@@ -1,32 +1,44 @@
 #include <bits/stdc++.h>
-#define maxn 1010
 using namespace std;
+#define maxn 1010
 
+int n, m, a[maxn];
 int dp[maxn][maxn];
-int a[maxn];
-
-int solve(int i, int j){
-	if(dp[i][j] != -1) return dp[i][j];
-	if(j == 0) return 0;
-	if(j == 1) return a[i+1]-a[i];
-	int ans = 1e9;
-	for(int k = 0; k < j; k++)
-		ans = min(ans, solve(i, j-k-1));
-	return dp[i][j] = ans+a[i+j]-a[i-1];
-}
+int op[maxn][maxn];
 
 int main(){
-	int n,m;
 	while(cin >> n >> m){
 		a[0] = 0;
 		a[m+1] = n;
-		memset(dp, -1, sizeof dp);
 		for(int i = 1; i <= m; i++)
 			cin >> a[i];
+		
+		memset(dp, 0, sizeof dp);
+		for(int i = 1; i <= m+1; i++)
+			for(int j = 0; i+j <= m+1; j++){
+				if(i == 1){
+					dp[j][j+i] = 0;
+					continue;
+				}
 
-		cout << solve(1, m) << '\n';
+				int ans = 1e9;
+				
+				int bg,nd;
+				if(i == 2)	
+					bg = j+1, nd = i+j;
+				else 
+					bg = op[j][i+j-1], nd = op[j+1][i+j];
+				
+				for(int k = bg; k <= nd; k++){
+					int v = dp[j][k]+dp[k][j+i];
+					if(ans > v){
+						ans = v;
+						op[j][j+i] = k;
+					}
+				}
+				dp[j][j+i] = ans + a[j+i] - a[j];
+			}
+		cout << dp[0][m+1] << '\n';
 	}
-
  	return 0;
 }
-
