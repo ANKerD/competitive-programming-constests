@@ -7,11 +7,11 @@ int dp[maxn][maxn];
 int op[maxn][maxn];
 
 int main(){
-	while(cin >> n >> m){
+	while(scanf("%d %d", &n, &m) != EOF){
 		a[0] = 0;
 		a[m+1] = n;
 		for(int i = 1; i <= m; i++)
-			cin >> a[i];
+			scanf("%d", a+i);
 		
 		memset(dp, 0, sizeof dp);
 		for(int i = 1; i <= m+1; i++)
@@ -38,7 +38,7 @@ int main(){
 				}
 				dp[j][j+i] = ans + a[j+i] - a[j];
 			}
-		cout << dp[0][m+1] << '\n';
+		printf("%d\n", dp[0][m+1]);
 	}
  	return 0;
 }
