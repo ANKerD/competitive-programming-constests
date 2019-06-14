@@ -84,28 +84,33 @@ ll dinic(int S, int T) {
 }
 
 int main(){
-	int n,k,node,z,st,dt;
+	int n,k,node,z,st,dt,m, cap[110];
     int x, y;
     while(scanf("%d", &n) != EOF) {
         int S = 0, T = n+5;
         Dinic::N = T+10;
-        for (int i = 0; i <= Dinic::N; ++i)
+        for (int i = 0; i <= 2*Dinic::N; ++i)
             Dinic::g[i].clear();
         Dinic::es.clear();
+
+        for (int i = 1; i <= n; ++i)
+            cin >> cap[i];
         
         int g[110][110];
+        int cap[110];
         memset(g, 0, sizeof g);
-        trace(n);
-        for (int i = 0; i < n; ++i) {
+        // trace(n);
+        cin >> m;
+        for (int i = 0; i < m; ++i) {
             cin >> x >> y >> z;
             g[x][y] += z;
-            trace(x,y,z);
         }
-        return 0;
-        for (int i = 0; i < 110; ++i)
+        for (int i = 0; i < 110; ++i) {
+            Dinic::addEdge(i, i+n, cap[i]);
             for (int j = 0; j < 110; ++j)
-                if (g[i][j])
-                    Dinic::addEdge(i, j, g[i][j]);
+                if (g[i][j]) 
+                    Dinic::addEdge(i+n, j, g[i][j]);
+        }
         cin >> st >> dt;
         for (int i = 0; i < st; ++i) {
             cin >> x;
@@ -113,7 +118,7 @@ int main(){
         }
         for (int i = 0; i < dt; ++i) {
             cin >> x;
-            // Dinic::addEdge(x, T, infl);
+            Dinic::addEdge(x+n, T, infl);
         }
         cout << Dinic::dinic(S,T) << '\n';
     }
