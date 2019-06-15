@@ -11,50 +11,75 @@ using namespace std;
 #define vii vector<ii>
 #define vll vector<ll>
 #define maxn 100010
-// #define block 225
-#define block 6
+#define block 200
+//#define block 2
 
 template<typename T>
-void trace(T a){ cout << a << '\n';}
+void trace(T a){ cerr << a << '\n';}
 template<typename T, typename... Args>
-void trace(T a, Args ...args){ cout << a << ' '; trace(args...);}
+void trace(T a, Args ...args){ cerr << a << ' '; trace(args...);}
 
 int p[maxn];
 vi f[maxn];
-int ans[block+10][maxn/2];
+int ans[max(block, maxn/block+2)][maxn];
 int a[maxn];
 
-inline void update(int idx, int val, int comb=1, int ins=1, int mask=0, int i = 0) {
-	if ((1<<i)&mask) return;
-	if (i >= f[val].size()) return;
-	
-	update(idx, val, comb, ins, mask, i+1);
+inline void update(int idx, int val, int ins=1) {
 	int bid = idx/block;
-	comb *= f[val][i];
-	ans[bid][comb] += ins;
-	update(idx, val, comb, ins, (1<<i)|mask, i+1);
+	int mask = (1<<f[val].size()) - 1;
+	for (int s=mask; s; s=(s-1)&mask) {
+		int comb = 1, sub = s, pos = 0;
+		while (sub) {
+			comb *= (sub & 1) ? f[val][pos] : 1;
+			sub = sub >> 1;
+			++pos;
+		}
+		ans[bid][comb] += ins;
+	}
 }
 
-int getval(int bl, int z, int comb=1, int mask=0, int i = 0){
-	if ((1<<i)&mask) return 0;
-	if (i >= f[z].size()) return 0;
-	
-	int tmp = getval(bl, z, comb, mask, i+1);
-	comb *= f[z][i];
-	tmp += ans[bl][comb];
-	tmp -= getval(bl, z, comb, mask|(1<<i), i+1);
-	return tmp;
+inline int getval(int bl, int z){
+	int res = 0;
+	int mask = (1<<f[z].size()) - 1;
+	for (int s=mask; s; s=(s-1)&mask) {
+		int sub = s, comb = 1, pos = 0;
+		while (sub) {
+			comb *= (sub & 1) ? f[z][pos] : 1;
+			sub = sub >> 1;
+			++pos;
+		}
+		if (__builtin_popcount(s) & 1)
+			res += ans[bl][comb];
+		else
+			res -= ans[bl][comb];
+	}
+	return res;
 };
 
-int query(int l, int r, int z) {
-	//
+int gcd(int a, int b) {
+	if (!a) return b;
+	return gcd(b%a, a);
+}
+
+int inline query(int l, int r, int z) {
+	int ans = 0;
+	while(l <= r) {
+		if (l % block == 0 and l+block <= r+1) {
+			ans += getval(l/block, z);
+			l += block;
+		} else {
+			if (gcd(z, a[l])!=1)
+				ans++;
+			l++;
+		}
+	}
+	return ans;
 }
 
 int main(){
-
 	memset(p, 1, sizeof p);
 	p[0] = p[1] = 0;
-	register int i = 2, j;
+	int i = 2, j;
 	while (i < maxn) {
 		f[i].push_back(i);
 		j = i<<1;
@@ -67,28 +92,28 @@ int main(){
 		while (i < maxn && !p[i]) 
 			++i;
 	}
-
 	int n;
-	cin >> n;
+	scanf("%d", &n);
 	for (int i = 1; i <= n; ++i) {
-		cin >> a[i];
+		scanf("%d", &a[i]);
 		update(i, a[i]);
 	}
-
 	int q,x,y,z,k;
-	cin >> q;
+	scanf("%d", &q);
+	vi answer;
 	while(q--) {
-		cin >> x >> y >> z;
+		scanf("%d %d %d", &x, &y, &z);
 		if (x == 1) {
-			update(y, a[y], 1,-1);
+			update(y, a[y], -1);
 			a[y] = z;
 			update(y, a[y]);
 		} else {
-			cin >> k;
-			cout << z-y+1-query(y,z,k) << '\n';
+			scanf("%d", &k);
+			answer.pb(z-y+1-query(y,z,k));
 		}
 	}
+	for (auto u: answer)
+		printf("%d\n", u);
 
  	return 0;
 }
-
