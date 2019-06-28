@@ -28,7 +28,8 @@ int ptr[maxn];
 int relabelTimer;
 
 void addEdge(int u, int v, int c) {
-    // printf("%d -> %d votes: %d\n", u,v,c);
+    // printf("votes: %d\n", c);
+    if (c < 1) return;
     g[u].push_back(sz(edge));
     edge.push_back({v, c, 0});
     g[v].push_back(sz(edge));
@@ -136,6 +137,8 @@ ll flow(int _S, int _T) {
 } //PushRelabel
 
 int main(){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
 	int source = 0, sink = 119;
 	int n,m,x,y,z;
     PushRelabel::n = 120;
@@ -150,29 +153,28 @@ int main(){
         for (int i = 1; i <= n; ++i) {
             forn (i, PushRelabel::n) PushRelabel::g[i].clear();
             PushRelabel::edge.clear();
+            
             int votes = 0;
-            for (int j = 1; j <= n; ++j) 
+            for (int j = 1; j <= n; ++j) {
+                if (i == j) continue;
                 if (count(all(g[j]), i))
                     ++votes;
-            if (votes < 2 || 2*votes > n) {
-                if (2*votes > n) ++ans;
-                continue;
             }
+            if (2*votes > n) continue;
             for (int j = 1; j <= n; ++j) {
-                if (i == j || count(all(g[j]), i)) continue;
+                // if (i == j || count(all(g[j]), i)) continue;
                 PushRelabel::addEdge(source, j, 1);
                 PushRelabel::addEdge(j, g[j][0]+n, 1);
                 PushRelabel::addEdge(j, g[j][1]+n, 1);
-                // printf("%d -> %d votes: %d\n", j,sink,votes - count(all(g[i]), j)? 2:1);
                 if (count(all(g[i]), j)) 
-                    PushRelabel::addEdge(j+n, sink, votes-1);
+                    PushRelabel::addEdge(j+n, sink, votes-2);
                 else
                     PushRelabel::addEdge(j+n, sink, votes-1);
             }
-            if (PushRelabel::flow(source, sink)+votes < n)
+            if (PushRelabel::flow(source, sink) < n-1)
                 ++ans;
         }
-        printf("--- %d\n", ans);
+        printf("%d\n", ans);
         // break;
     }
 	

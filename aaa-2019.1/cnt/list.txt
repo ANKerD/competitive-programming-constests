@@ -10,9 +10,13 @@ Difícil - Campinas - Galatic Taxes - https://icpcarchive.ecs.baylor.edu/uhunt/i
 Difícil - Campinas - Weakness and Poorness - https://codeforces.com/contest/578/submission/52931603
 Difícil - Campinas - Lieges of Legendre - https://codeforces.com/contest/603/submission/55057295
 Difícil - Campinas - Marbles - https://codeforces.com/gym/101908/submission/53440462
+Difícil - Campinas - Plant - https://codeforces.com/contest/185/submission/56234721
 Difícil - Campinas - Soldier and Traveling - https://codeforces.com/contest/546/submission/56182553
 Difícil - Campinas - The Courier - https://www.spoj.com/status/COURIER,akleberd/
+Difícil - Campinas - Delivery Bears - https://codeforces.com/contest/653/submission/56234464
 Difícil - Campinas - Petya and Graph - https://codeforces.com/contest/1082/submission/56181983
+Difícil - Campinas - Kill the Werewolf - https://icpcarchive.ecs.baylor.edu/uhunt/id/273968
+Difícil - Curso do Artsem - PHI - http://opentrains.mipt.ru/~ejudge/team.cgi?SID=d86c6f52f9a3bfc0&run_id=75&action=37
 Difícil - lista-4 - Breaking String - https://www.spoj.com/status/BRKSTRNG,akleberd/
 Difícil - lista-4 - Ciel and Gondolas - https://codeforces.com/contest/321/submission/56181790
 Difícil - Gustavo-extra - PSHTRG - https://www.codechef.com/viewsolution/24423564
@@ -22,7 +26,8 @@ Difícil - Gustavo-contest - https://br.spoj.com/status/PASSEIO,akleberd/
 Difícil - CF-2019 - Bicolored RBS - https://codeforces.com/contest/1167/submission/54204811
 Difícil - Discussão na aula - Vasya and a Tree - https://codeforces.com/contest/1076/submission/55181468
 Difícil - Discussão na aula - Short Code - https://codeforces.com/contest/965/submission/55217789
-Difícil - Discussão na aula - Pathwalks - https://codeforces.com/contest/960/submission/55181832
+Difícil - Discussão na aula - Pathwalks - https://codeforces.com/contest/960/submission/55181006
+Difícil - Discussão na aula - Pathwalks (Outra ideia) - https://codeforces.com/contest/960/submission/55181832
 Difícil - Emerson - Recovering BST - https://codeforces.com/group/ftdQm9vAm2/contest/239044/standings/groupmates/true
 Qualquer Problema - AtCoder - DivRem Number - https://atcoder.jp/contests/diverta2019/submissions/5369349
 Qualquer Problema - CF - Chunga-Changa - https://codeforces.com/contest/1181/submission/55622444
