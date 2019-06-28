@@ -11,8 +11,8 @@ using namespace std;
 #define vii vector<ii>
 #define vll vector<ll>
 #define maxn 100010
-#define block 200
-//#define block 2
+#define block 250
+// #define block 6
 
 template<typename T>
 void trace(T a){ cerr << a << '\n';}
@@ -56,9 +56,25 @@ inline int getval(int bl, int z){
 	return res;
 };
 
+<<<<<<< HEAD
 int gcd(int a, int b) {
 	if (!a) return b;
 	return gcd(b%a, a);
+=======
+int query(int l, int r, int z) {
+	int ans = 0;
+	for (int i = l; i <= r;) {
+		if (i % block == 0 && i+block<=r) {
+			ans += getval(i/block, z);
+			i += block;
+		} else {
+			if (__gcd(a[i], z) != 1)
+				++ans;
+			++i;
+		}
+	}
+	return ans;
+>>>>>>> d95367a9dc4d15c7a2620527b10c655c8f9f4a48
 }
 
 int inline query(int l, int r, int z) {
