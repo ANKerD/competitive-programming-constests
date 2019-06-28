@@ -10,7 +10,7 @@ using namespace std;
 #define ld long double
 #define vii vector<ii>
 #define vll vector<ll>
-#define maxn 1'000'100'000LL
+#define maxn 1000100000LL
 
 template<typename T>
 void trace(T a){ cout << a << '\n';}
@@ -46,8 +46,8 @@ bool cmp(event a, event b){
 int main(){
 	int p,v;
 	int h=5;
-	while(h--){
-		cin >> p >> v;
+	while(scanf("%d %d", &p, &v) != EOF){
+		// cin >> p >> v;
 		if(p == 0 && v == 0) break;
 		vector<event> evs;
 		ll x,y;
@@ -89,7 +89,7 @@ int main(){
 			}
 		}
 		cout << ans << '\n';
-		break;
+		// break;
 	}
  	return 0;
 }

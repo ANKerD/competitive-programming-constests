@@ -1,0 +1,43 @@
+Difícil - Campinas - Chocolate Bar - https://codeforces.com/contest/598/submission/52879646
+Difícil - Campinas - Puzzleland - (uva)
+Difícil - Campinas - Balloons - https://www.spoj.com/status/UFPT2015H,akleberd/
+Difícil - Campinas - Oil - https://icpcarchive.ecs.baylor.edu/uhunt/id/273968
+Difícil - Campinas - Ball Stacking - https://icpcarchive.ecs.baylor.edu/uhunt/id/273968
+Difícil - Campinas - Hotel Rewards - https://icpcarchive.ecs.baylor.edu/uhunt/id/273968
+Difícil - Campinas - Fence and Vegetables Fail - https://icpcarchive.ecs.baylor.edu/uhunt/id/273968
+Difícil - Campinas - Jumping Frongs - https://icpcarchive.ecs.baylor.edu/uhunt/id/273968
+Difícil - Campinas - Galatic Taxes - https://icpcarchive.ecs.baylor.edu/uhunt/id/273968
+Difícil - Campinas - Weakness and Poorness - https://codeforces.com/contest/578/submission/52931603
+Difícil - Campinas - Lieges of Legendre - https://codeforces.com/contest/603/submission/55057295
+Difícil - Campinas - Marbles - https://codeforces.com/gym/101908/submission/53440462
+Difícil - Campinas - Soldier and Traveling - https://codeforces.com/contest/546/submission/56182553
+Difícil - Campinas - The Courier - https://www.spoj.com/status/COURIER,akleberd/
+Difícil - Campinas - Petya and Graph - https://codeforces.com/contest/1082/submission/56181983
+Difícil - lista-4 - Breaking String - https://www.spoj.com/status/BRKSTRNG,akleberd/
+Difícil - lista-4 - Ciel and Gondolas - https://codeforces.com/contest/321/submission/56181790
+Difícil - Gustavo-extra - PSHTRG - https://www.codechef.com/viewsolution/24423564
+Difícil - Gustavo-extra - GCDCNT - https://www.codechef.com/viewsolution/24492189
+Difícil - Gustavo-contest - https://br.spoj.com/status/ENERGIAT,akleberd/
+Difícil - Gustavo-contest - https://br.spoj.com/status/PASSEIO,akleberd/
+Difícil - CF-2019 - Bicolored RBS - https://codeforces.com/contest/1167/submission/54204811
+Difícil - Discussão na aula - Vasya and a Tree - https://codeforces.com/contest/1076/submission/55181468
+Difícil - Discussão na aula - Short Code - https://codeforces.com/contest/965/submission/55217789
+Difícil - Discussão na aula - Pathwalks - https://codeforces.com/contest/960/submission/55181832
+Difícil - Emerson - Recovering BST - https://codeforces.com/group/ftdQm9vAm2/contest/239044/standings/groupmates/true
+Qualquer Problema - AtCoder - DivRem Number - https://atcoder.jp/contests/diverta2019/submissions/5369349
+Qualquer Problema - CF - Chunga-Changa - https://codeforces.com/contest/1181/submission/55622444
+Qualquer Problema - CF - Split a Number - https://codeforces.com/contest/1181/submission/55625854
+Qualquer Problema - CF - Nearest Interesting Number - https://codeforces.com/contest/1183/submission/56080641
+Qualquer Problema - CF - Equalize Prices - https://codeforces.com/contest/1183/submission/56087544
+Qualquer Problema - CF - Computer Game - https://codeforces.com/contest/1183/submission/56092693
+Qualquer Problema - CF - Candy Box (easy version) - https://codeforces.com/contest/1183/submission/56099974
+Qualquer Problema - CF - Nauuo and Votes - https://codeforces.com/contest/1173/submission/55247196
+Qualquer Problema - CF - Nauuo and Chess - https://codeforces.com/contest/1173/submission/55252221
+Qualquer Problema - CF - Telephone Number - https://codeforces.com/contest/1167/submission/54179227
+Qualquer Problema - CF - Lost Numbers - https://codeforces.com/contest/1167/submission/54201927
+Qualquer Problema - CF - News Distribution - https://codeforces.com/contest/1167/submission/54186865
+Qualquer Problema - CF - Be Positive - https://codeforces.com/contest/1130/submission/50436649
+Qualquer Problema - CF - Two Cakes - https://codeforces.com/contest/1130/submission/50443389
+Qualquer Problema - CF - Connect - https://codeforces.com/contest/1130/problem/C
+
+
