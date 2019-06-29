@@ -56,11 +56,11 @@ inline int getval(int bl, int z){
 	return res;
 };
 
-<<<<<<< HEAD
 int gcd(int a, int b) {
 	if (!a) return b;
 	return gcd(b%a, a);
-=======
+}
+
 int query(int l, int r, int z) {
 	int ans = 0;
 	for (int i = l; i <= r;) {
@@ -74,7 +74,6 @@ int query(int l, int r, int z) {
 		}
 	}
 	return ans;
->>>>>>> d95367a9dc4d15c7a2620527b10c655c8f9f4a48
 }
 
 int inline query(int l, int r, int z) {

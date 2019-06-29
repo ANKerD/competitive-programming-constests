@@ -8,6 +8,7 @@ Difícil - Campinas - Fence and Vegetables Fail - https://icpcarchive.ecs.baylor
 Difícil - Campinas - Jumping Frongs - https://icpcarchive.ecs.baylor.edu/uhunt/id/273968
 Difícil - Campinas - Galatic Taxes - https://icpcarchive.ecs.baylor.edu/uhunt/id/273968
 Difícil - Campinas - Weakness and Poorness - https://codeforces.com/contest/578/submission/52931603
+Difícil - Campinas - Devu and his Brother - https://codeforces.com/contest/439/submission/56250388
 Difícil - Campinas - Remainders Game - https://codeforces.com/contest/687/submission/56246981
 Difícil - Campinas - Lieges of Legendre - https://codeforces.com/contest/603/submission/55057295
 Difícil - Campinas - Marbles - https://codeforces.com/gym/101908/submission/53440462 - https://hastebin.com/megodegoki.cpp
