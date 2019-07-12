@@ -24,14 +24,15 @@ Difícil - lista-4 - Breaking String - https://www.spoj.com/status/BRKSTRNG,akle
 Difícil - lista-4 - Ciel and Gondolas - https://codeforces.com/contest/321/submission/56181790
 Difícil - Gustavo-extra - PSHTRG - https://www.codechef.com/viewsolution/24423564
 Difícil - Gustavo-extra - GCDCNT - https://www.codechef.com/viewsolution/24492189
+Difícil - Gustavo-extra - Short Code - https://codeforces.com/contest/965/submission/55217789
+Difícil - Gustavo-extra - Pathwalks - https://codeforces.com/contest/960/submission/55181006
 Difícil - Gustavo-contest - LaSalle/RNG - https://codeforces.com/gym/101521/submission/54154098 - https://hastebin.com/tufifuyugo.cpp
 Difícil - Gustavo-contest - LaSalle/PokemonGO - https://codeforces.com/gym/101521/submission/56249112 - https://hastebin.com/ufimapolan.cpp
 Difícil - Gustavo-contest - https://br.spoj.com/status/ENERGIAT,akleberd/
 Difícil - Gustavo-contest - https://br.spoj.com/status/PASSEIO,akleberd/
 Difícil - Discussão na aula - Vasya and a Tree - https://codeforces.com/contest/1076/submission/55181468
-Difícil - Discussão na aula - Short Code - https://codeforces.com/contest/965/submission/55217789
-Difícil - Discussão na aula - Pathwalks - https://codeforces.com/contest/960/submission/55181006
-Difícil - Emerson - Recovering BST - https://codeforces.com/group/ftdQm9vAm2/contest/23904 4/standings/groupmates/true
+Difícil - Emerson - Recovering BST - https://codeforces.com/group/ftdQm9vAm2/contest/239044/standings/groupmates/true
+Difícil - Codeforces Global 3 - D - https://codeforces.com/contest/1148/submission/56477063
 Qualquer Problema - AtCoder - DivRem Number - https://atcoder.jp/contests/diverta2019/submissions/5369349
 Qualquer Problema - CF - Chunga-Changa - https://codeforces.com/contest/1181/submission/55622444
 Qualquer Problema - CF - Split a Number - https://codeforces.com/contest/1181/submission/55625854
