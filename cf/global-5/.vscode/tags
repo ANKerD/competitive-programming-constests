@@ -1,0 +1,34 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+a	../a/code.py	/^a = []$/;"	kind:variable	line:2
+a	../b/code.py	/^a = list(map(int, input().split()))$/;"	kind:variable	line:17
+a	../d/code.py	/^a = list(map(int, input().split()))$/;"	kind:variable	line:4
+ans	../b/code.py	/^ans = 0$/;"	kind:variable	line:26
+ans	../d/code.py	/^ans = [str(solve(i)) for i in range(n)]$/;"	kind:variable	line:27
+b	../a/code.py	/^b = [i \/\/ 2 for i in a]$/;"	kind:variable	line:5
+b	../b/code.py	/^b = list(map(int, input().split()))$/;"	kind:variable	line:18
+b	../d/code.py	/^b = a[:]$/;"	kind:variable	line:5
+c	../a/code.py	/^c = sum(b)$/;"	kind:variable	line:6
+code.py	../a/code.py	1;"	kind:file	line:1
+code.py	../b/code.py	1;"	kind:file	line:1
+code.py	../c1/code.py	1;"	kind:file	line:1
+code.py	../c2/code.py	1;"	kind:file	line:1
+code.py	../d/code.py	1;"	kind:file	line:1
+code.py	../e/code.py	1;"	kind:file	line:1
+code.py	../template/code.py	1;"	kind:file	line:1
+cycle	../d/code.py	/^cycle = True$/;"	kind:variable	line:19
+dp	../d/code.py	/^dp = [-1] * maxn$/;"	kind:variable	line:2
+go	../b/code.py	/^go = {}$/;"	kind:variable	line:19
+maxn	../b/code.py	/^maxn = 10 ** 5 + 10$/;"	kind:variable	line:1
+maxn	../d/code.py	/^maxn = 3 * 10 ** 5 + 10$/;"	kind:variable	line:1
+n	../a/code.py	/^n = int(input())$/;"	kind:variable	line:1
+n	../b/code.py	/^n = int(input())$/;"	kind:variable	line:16
+n	../d/code.py	/^n = int(input())$/;"	kind:variable	line:3
+query	../b/code.py	/^def query(i):$/;"	kind:function	line:9
+solve	../d/code.py	/^def solve(i):$/;"	kind:function	line:9
+st	../b/code.py	/^st = [0] * maxn$/;"	kind:variable	line:2
+update	../b/code.py	/^def update(i, v):$/;"	kind:function	line:4
